@@ -23,7 +23,7 @@ workflows:
   abc_and_def_djkl:
     jobs:
       - abc
-      - djkl:
+      - def:
           requires:
             - abc 
       - djkl:
