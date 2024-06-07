@@ -1,0 +1,25 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: cmi/python:3.11
+    steps:
+      - checkout:
+      - run: python main.py
+    
+  test:
+    docker:
+      - image: cmi/python:3.11
+    steps:
+      - checkout: 
+      - run: python tests.py
+    
+workflow:
+  build_and_test:
+    jobs:
+     - build
+     - test: 
+         requires:
+           build
+    
